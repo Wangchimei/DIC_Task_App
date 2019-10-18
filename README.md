@@ -25,7 +25,7 @@
 | id | integer |
 | name | string |
 
-### Model: Category
+### Model: Relation
 | Column | Type |
 |:---:|:---:|
 | id | integer |
