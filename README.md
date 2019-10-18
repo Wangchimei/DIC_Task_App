@@ -1,24 +1,33 @@
-# README
+# DIC Exercise
+## Data Structure
+### Model: Task
+| Column | Type |
+|:---:|:---:|
+|id| integer|
+| title | string |
+| content |text |
+| deadline | datetime |
+| priority | integer |
+| status | integer |
+| user_id | references|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Model: User
+| Column | Type |
+|:---:|:---:|
+| id | integer |
+| name | string |
+| email |string |
+| password_digest | string |
 
-Things you may want to cover:
+### Model: Label
+| Column | Type |
+|:---:|:---:|
+| id | integer |
+| name | string |
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Model: Category
+| Column | Type |
+|:---:|:---:|
+| id | integer |
+| task_id | integer |
+| label_id | integer |
