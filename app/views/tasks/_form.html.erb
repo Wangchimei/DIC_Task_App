@@ -1,0 +1,22 @@
+<form>
+  <div class="form-group">
+    <%= form_with(model: task, local: :true) do |f| %>
+
+    <div class="mt-5 mb-3">
+    <%= f.label :title, class: "sr-only" %>
+    <%= f.text_field :title,class: "form-control",placeholder: "タスク名" %>
+    </div>
+
+    <div class="my-3">
+    <%= f.label :content, class: "sr-only" %>
+    <%= f.text_area :content, class: "form-control",placeholder: "概要" %>
+    </div>
+
+    <div class=" text-center my-4">
+    <%= f.submit button_text, class: "btn btn-info" %>
+    <%= link_to "戻る", :back, class: "btn btn-outline-info" %>
+    </div>
+
+    <%end%>
+  </div>
+</form>

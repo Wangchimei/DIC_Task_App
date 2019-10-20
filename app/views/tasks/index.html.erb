@@ -1,8 +1,11 @@
-<div class="container">
- <p class="h3 my-4 text-center">タスク一覧</p>
+<div class="title">
+<p class="h3 my-4 text-center">タスク一覧</p>
 </div>
-<table class="table">
-  <thead>
+
+<%=link_to "new", new_task_path, class:"btn btn-info" %>
+
+<table class="table my-2">
+  <thead class="text-center">
     <tr>
       <th scope="col">#</th>
       <th scope="col">タスク名</th>
@@ -13,11 +16,13 @@
   <% @tasks.each.with_index(0) do |task, i| %>
     <tbody>
       <tr>
-        <th scope="row"><%=i%></th>
-        <td><%=task.title%></td>
+        <th  class="text-center" scope="row"><%=i%></th>
+        <td class="text-center"><%=task.title%></td>
         <td><%=task.content%></td>
-        <td>
-
+        <td class="text-center">
+          <%=link_to "詳細", task_path(task), class:"btn btn-info" %>
+          <%=link_to "修正", edit_task_path(task), class:"btn btn-info" %>
+          <%=link_to "削除", task_path(task), method: :delete, data: {confirm: "削除しますか？"}, class:"btn btn-danger"%>
         </td>
       </tr>
     </tbody>
