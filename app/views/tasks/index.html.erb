@@ -1,0 +1,25 @@
+<div class="container">
+ <p class="h3 my-4 text-center">タスク一覧</p>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">タスク名</th>
+      <th scope="col">概要</th>
+      <th scope="col">管理</th>
+    </tr>
+  </thead>
+  <% @tasks.each.with_index(0) do |task, i| %>
+    <tbody>
+      <tr>
+        <th scope="row"><%=i%></th>
+        <td><%=task.title%></td>
+        <td><%=task.content%></td>
+        <td>
+
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
