@@ -2,7 +2,7 @@
 <p class="h3 my-4 text-center">タスク一覧</p>
 </div>
 
-<%=link_to "new", new_task_path, class:"btn btn-info" %>
+<%=link_to "新規タスク", new_task_path, class:"btn btn btn-info" %>
 
 <table class="table my-2">
   <thead class="text-center">
@@ -13,7 +13,7 @@
       <th scope="col">管理</th>
     </tr>
   </thead>
-  <% @tasks.each.with_index(0) do |task, i| %>
+  <% @tasks.each.with_index(1) do |task, i| %>
     <tbody>
       <tr>
         <th  class="text-center" scope="row"><%=i%></th>
