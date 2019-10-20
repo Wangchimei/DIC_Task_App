@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @feed.update(task_params)
+    if @task.update(task_params)
       redirect_to tasks_path
       flash[:notice] = "タスクが更新されました"
     else
