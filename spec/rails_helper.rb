@@ -60,4 +60,27 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+    config.filter_rails_from_backtrace!
+  # arbitrary gems may also be filtered via:
+  # config.filter_gems_from_backtrace("gem name")
+
+  # 下記の記述を追記
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:all) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:all) do
+    DatabaseCleaner.clean
+  end
+
+  # save and open page
+  config.after do |example|
+    if example.metadata[:type] == :feature and example.exception.present? and example.metadata[:open_on_error] == true
+      save_and_open_page
+    end
+  end
 end
