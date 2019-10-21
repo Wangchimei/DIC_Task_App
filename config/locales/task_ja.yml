@@ -1,0 +1,23 @@
+---
+ja:
+  view:
+    task_title: "タスク名"
+    task_content: "概要"
+    edit: "修正"
+    delete: "削除"
+    delete_confirm: "削除しますか？"
+    back: "戻る"
+  index:
+    page_title: "タスク一覧"
+    new_task: "新規タスク"
+    task_management: "管理"
+    detail: "詳細"
+  show:
+    task: "タスク"
+  new:
+    task: "新規タスク"
+  edit:
+    task: "タスク編集"
+  task_form:
+    create: "作成する"
+    update: "更新する"

@@ -1,7 +1,5 @@
 ---
 ja:
-  view:
-    new_task: "新規タスク"
   activerecord:
     errors:
       messages:
@@ -205,18 +203,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-
-  activerecord:
-    models:
-      task: タスク
-      user: ユーザー
-    attributes:
-      task:
-        title: タスク名
-        content: 概要
-      user:
-        name: 名前
-        email: メールアドレス
-        current_password: 現在のパスワード
-        password: パスワード
-        password_confirmation: 確認用パスワード

@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'byebug'
 
 RSpec.feature 'タスク管理機能', type: :feature do
-  scenario 'タスク一覧のテスト' do
+  scenario 'タスク一覧のテスト', open_on_error: true do
   Task.create!(title: 'test_task_01', content: 'testtesttest')
   Task.create!(title: 'test_task_02', content: 'samplesample')
 
@@ -12,7 +12,7 @@ RSpec.feature 'タスク管理機能', type: :feature do
   expect(page).to have_content 'samplesample'
   end
 
-  scenario 'タスク作成のテスト' do
+  scenario 'タスク作成のテスト', open_on_error: true do
     visit new_task_path
 
     fill_in "task_title", with: 'test_task_01'

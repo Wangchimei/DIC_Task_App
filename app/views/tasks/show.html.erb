@@ -1,5 +1,5 @@
 <div class="title">
-  <p class="h6 mt-4 mb-0 text-center">タスク</p>
+  <p class="h6 mt-4 mb-0 text-center"><%=t('show.task')%></p>
   <p class="h3 mb-4 mt-0 text-center"><%=@task.title%></p>
 </div>
 
@@ -7,7 +7,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col text-right">
-        <%=link_to "削除", task_path(@task), method: :delete, data: {confirm: "削除しますか？"}, class:"btn btn-danger"%>
+        <%=link_to t('view.delete'), task_path(@task), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger"%>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
         <table class="table table-bordered">
           <thead class="text-center">
             <tr class="table">
-              <th scope="col">タスク名</td>
+              <th scope="col"><%=t('view.task_title')%></td>
             </tr>
           </thead>
           <tbody>
@@ -29,7 +29,7 @@
         <table class="table table-bordered">
           <thead>
             <tr class="table text-center">
-              <th scope="col">概要</td>
+              <th scope="col"><%=t('view.task_content')%></td>
             </tr>
           </thead>
           <tbody>
@@ -43,8 +43,8 @@
   </div>
   <div class="card-footer">
     <div class="text-center">
-      <%=link_to "修正", edit_task_path(@task), class:"btn btn-info" %>
-      <%= link_to "戻る", :back, class: "btn btn-outline-info" %>
+      <%=link_to t('view.edit'), edit_task_path(@task), class:"btn btn-info" %>
+      <%= link_to t('view.back'), :back, class: "btn btn-outline-info" %>
     </div>
   </div>
 </div>

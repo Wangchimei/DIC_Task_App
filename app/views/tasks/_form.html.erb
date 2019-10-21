@@ -16,17 +16,17 @@
   <div class="form-group">
     <div class="mt-5 mb-3">
       <%= f.label :title, class: "sr-only" %>
-      <%= f.text_field :title,class: "form-control",placeholder: "タスク名" %>
+      <%= f.text_field :title,class: "form-control",placeholder: t('view.task_title') %>
     </div>
 
     <div class="my-3">
       <%= f.label :content, class: "sr-only" %>
-      <%= f.text_area :content, class: "form-control",placeholder: "概要" %>
+      <%= f.text_area :content, class: "form-control",placeholder: t('view.task_content') %>
     </div>
 
     <div class="text-center my-4">
-      <%= f.submit "作成する", method: :post, class: "btn btn-info" %>
-      <%= link_to "戻る", tasks_path, class: "btn btn-outline-info" %>
+      <%= f.submit button_text, method: :post, class: "btn btn-info" %>
+      <%= link_to t('view.back'), tasks_path, class: "btn btn-outline-info" %>
     </div>
   </div>
 <%end%>
