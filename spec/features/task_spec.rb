@@ -17,10 +17,9 @@ RSpec.feature 'タスク管理機能', type: :feature do
   scenario 'タスク作成のテスト', open_on_error: true do
     visit new_task_path
 
-    fill_in "Title", with: 'test_task_01'
-    fill_in "Content", with: 'testtesttest'
-    click_on '作成する'
-
+    fill_in "task_title", with: 'test_task_01'
+    fill_in "概要", with: 'testtesttest'
+    click_on "作成する"
     expect(page).to have_content 'test_task_01'
     expect(page).to have_content 'testtesttest'
   end
