@@ -10,14 +10,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    binding.irb
     @task = Task.new(task_params)
     if @task.save
-      binding.irb
       redirect_to tasks_path
       flash[:notice] = "タスクを作成しました"
     else
-      binding.irb
       render :new
     end
   end
