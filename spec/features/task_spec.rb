@@ -2,14 +2,17 @@ require 'rails_helper'
 require 'byebug'
 
 RSpec.feature 'タスク管理機能', type: :feature do
+  background do
+    @task = FactoryBot.create(:task)
+    @task2 = FactoryBot.create(:second_task)
+    @task3 = FactoryBot.create(:third_task)
+  end
+
   scenario 'タスク一覧のテスト', open_on_error: true do
-  Task.create!(title: 'test_task_01', content: 'testtesttest')
-  Task.create!(title: 'test_task_02', content: 'samplesample')
+    visit tasks_path
 
-  visit tasks_path
-
-  expect(page).to have_content 'testtesttest'
-  expect(page).to have_content 'samplesample'
+    expect(page).to have_content 'titletitle1'
+    expect(page).to have_content 'contentcontent1'
   end
 
   scenario 'タスク作成のテスト', open_on_error: true do
@@ -23,10 +26,17 @@ RSpec.feature 'タスク管理機能', type: :feature do
   end
 
   scenario 'タスク詳細のテスト', open_on_error: true do
-    Task.create!(title: 'test_task_01', content: 'testtesttest')
+    visit task_path(@task3)
+
+    expect(page).to have_content 'titletitle3'
+    expect(page).to have_content 'contentcontent3'
+  end
+
+  scenario "タスクが作成日時の降順に並んでいるかのテスト" do
     visit tasks_path
-    click_on '詳細'
-    expect(page).to have_content 'test_task_01'
-    expect(page).to have_content 'testtesttest'
+
+    tasks =  all(".task_list")
+    expect(tasks[0]).to have_content "titletitle3"
+    expect(tasks[1]).to have_content "titletitle2"
   end
 end
