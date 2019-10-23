@@ -24,6 +24,11 @@
       <%= f.text_area :content, class: "form-control",placeholder: t('view.task_content') %>
     </div>
 
+    <div class="my-3">
+      <%= f.label :deadline, class: "sr-only" %>
+      <%= f.datetime_select :deadline, class: "form-control" %>
+    </div>
+
     <div class="text-center my-4">
       <%= f.submit button_text, method: :post, class: "btn btn-info" %>
       <%= link_to t('view.back'), tasks_path, class: "btn btn-outline-info" %>

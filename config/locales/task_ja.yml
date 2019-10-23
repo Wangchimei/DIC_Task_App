@@ -3,6 +3,7 @@ ja:
   view:
     task_title: "タスク名"
     task_content: "概要"
+    deadline: "終了期限"
     edit: "修正"
     delete: "削除"
     delete_confirm: "削除しますか？"
@@ -10,6 +11,8 @@ ja:
   index:
     page_title: "タスク一覧"
     new_task: "新規タスク"
+    desc_sort: "新しい順"
+    deadline_sort: "期限順"
     task_management: "管理"
     detail: "詳細"
   show:

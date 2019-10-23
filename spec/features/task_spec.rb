@@ -38,4 +38,37 @@ RSpec.feature 'タスク管理機能', type: :feature do
     expect(tasks[0]).to have_content "titletitle3"
     expect(tasks[1]).to have_content "titletitle2"
   end
+
+  scenario "終了期限登録のテスト" do
+    visit new_task_path
+
+    fill_in "task_title", with: 'test_task_01'
+    fill_in "task_content", with: 'testtesttest'
+    select '2019', from: 'task_deadline_1i'
+    select '12月', from: 'task_deadline_2i'
+    select '12', from: 'task_deadline_3i'
+    select '13', from: 'task_deadline_4i'
+    select '30', from: 'task_deadline_5i'
+
+    click_on '作成する'
+
+    expect(page).to have_content '2019年12月12日 13時30分'
+  end
+
+  scenario "一覧画面で終了期限でソートテスト" do
+    visit tasks_path
+    click_link '終了期限でソート'
+    all('tr td')[3].click_link '詳細'
+    expect(page).to have_content 'testtesttest3'
+
+    visit tasks_path
+    click_link '終了期限でソート'
+    all('tr td')[9].click_link '詳細'
+    expect(page).to have_content 'testtesttest2'
+
+    visit tasks_path
+    click_link '終了期限でソート'
+    all('tr td')[15].click_link '詳細'
+    expect(page).to have_content 'testtesttest'
+  end
 end
