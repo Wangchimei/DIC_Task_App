@@ -77,6 +77,13 @@ RSpec.feature 'タスク管理機能', type: :feature do
     expect(tasks[2]).to have_content "titletitle3"
   end
 
+  scenario "タスクをステータスで絞り込みのテスト" do
+    visit tasks_path
+    select '完了', from: 'task_status'
+    click_on 'register-button'
+    expect(page).to have_content 'titletitle3'
+  end
+
   scenario "一覧画面で優先順でソートテスト" do
     visit tasks_path
     click_link '優先順'
