@@ -9,6 +9,8 @@ class TasksController < ApplicationController
       @tasks = Task.all.order(deadline: :asc)
     elsif params[:sort_status]
       @tasks = Task.all.order(status: :asc)
+    elsif params[:sort_priority]
+      @tasks = Task.all.order(priority: :desc)
     else
       @tasks = Task.all.order(created_at: :desc)
     end

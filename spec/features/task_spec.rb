@@ -66,4 +66,24 @@ RSpec.feature 'タスク管理機能', type: :feature do
     expect(tasks[1]).to have_content "titletitle2"
     expect(tasks[2]).to have_content "titletitle3"
   end
+
+  scenario "一覧画面でステータス順でソートテスト" do
+    visit tasks_path
+    click_link 'ステータス順'
+
+    tasks =  all(".task_list")
+    expect(tasks[0]).to have_content "titletitle1"
+    expect(tasks[1]).to have_content "titletitle2"
+    expect(tasks[2]).to have_content "titletitle3"
+  end
+
+  scenario "一覧画面で優先順でソートテスト" do
+    visit tasks_path
+    click_link '優先順'
+
+    tasks =  all(".task_list")
+    expect(tasks[0]).to have_content "titletitle2"
+    expect(tasks[1]).to have_content "titletitle1"
+    expect(tasks[2]).to have_content "titletitle3"
+  end
 end

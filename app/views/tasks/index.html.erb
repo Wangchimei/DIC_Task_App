@@ -22,6 +22,7 @@
 <%= link_to t('index.desc_sort'), tasks_path, class:"btn btn-outline-info fas fa-filter mr-2" %>
 <%= link_to t('index.deadline_sort'), tasks_path(sort_deadline: "true"), class:"btn btn-outline-info far fa-clock mr-2" %>
 <%= link_to t('index.status_sort'), tasks_path(sort_status: "true"), class:"btn btn-outline-info far fa-check-square mr-2" %>
+<%= link_to t('index.priority_sort'), tasks_path(sort_priority: "true"), class:"btn btn-outline-info fab fa-font-awesome-flag mr-2" %>
 
 <table class="table my-2">
   <thead class="text-center">

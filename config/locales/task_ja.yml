@@ -17,6 +17,7 @@ ja:
     desc_sort: "新しい順"
     deadline_sort: "期限順"
     status_sort: "ステータス順"
+    priority_sort: "優先順"
     task_management: "管理"
     detail: "詳細"
   show:
