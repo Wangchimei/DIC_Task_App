@@ -203,3 +203,9 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  enums:
+    task:
+      status:
+        not_started: "未着手"
+        in_progress: "着手中"
+        finished: "完了"

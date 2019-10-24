@@ -13,6 +13,7 @@ ja:
     new_task: "新規タスク"
     desc_sort: "新しい順"
     deadline_sort: "期限順"
+    status_sort: "ステータス順"
     task_management: "管理"
     detail: "詳細"
   show:

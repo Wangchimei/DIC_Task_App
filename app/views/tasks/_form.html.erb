@@ -29,6 +29,11 @@
       <%= f.datetime_select :deadline, class: "form-control" %>
     </div>
 
+    <div class="my-3">
+      <%= f.label :status, class: "sr-only" %>
+      <%= f.select :status, Task.statuses_i18n.invert, {}, class: "form-control" %>
+    </div>
+
     <div class="text-center my-4">
       <%= f.submit button_text, method: :post, class: "btn btn-info" %>
       <%= link_to t('view.back'), tasks_path, class: "btn btn-outline-info" %>
