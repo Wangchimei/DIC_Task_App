@@ -5,6 +5,7 @@ ja:
     task_content: "タスク概要"
     deadline: "終了期限"
     status: "ステータス"
+    priority : "優先順位"
     edit: "修正"
     delete: "削除"
     delete_confirm: "削除しますか？"

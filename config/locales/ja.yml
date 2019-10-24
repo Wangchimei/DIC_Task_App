@@ -209,3 +209,7 @@ ja:
         not_started: "未着手"
         in_progress: "着手中"
         finished: "完了"
+      priority:
+        low: "低"
+        medium: "中"
+        high: "高"
