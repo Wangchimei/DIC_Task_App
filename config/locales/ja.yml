@@ -213,3 +213,10 @@ ja:
         low: "低"
         medium: "中"
         high: "高"
+  views: 
+    pagination:
+      first: 先頭
+      last: 末尾
+      previous: 前
+      next: 次
+      truncate: "..." 
