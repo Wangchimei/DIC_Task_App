@@ -38,6 +38,22 @@
             </tr>
           </tbody>
         </table>
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table text-center">
+              <th scope="col"><%=t('view.deadline')%></td>
+              <th scope="col"><%=t('view.status')%></td>
+              <th scope="col"><%=t('view.priority')%></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @task.deadline.strftime(("%Y年%m月%d日 %H時%M分")) %></td>
+              <td><%= Task.statuses_i18n[@task.status] %></td>
+              <td><%= Task.priorities_i18n[@task.priority] %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
