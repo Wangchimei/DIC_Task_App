@@ -2,14 +2,16 @@
 ja:
   view:
     task_title: "タスク名"
-    task_content: "概要"
+    task_content: "タスク概要"
     deadline: "終了期限"
+    status: "ステータス"
     edit: "修正"
     delete: "削除"
     delete_confirm: "削除しますか？"
     back: "戻る"
   index:
     page_title: "タスク一覧"
+    search: "検索"
     new_task: "新規タスク"
     desc_sort: "新しい順"
     deadline_sort: "期限順"

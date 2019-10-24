@@ -2,7 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :show, :destroy]
 
   def index
-    if params[:sort_deadline]
+    if params[:task].present? && params[:task][:search]
+      @tasks = Task.title_search(params[:task][:title]).status_search(params[:task][:status])
+      # @tasks = Task.search(params[:task][:title])
+    elsif params[:sort_deadline]
       @tasks = Task.all.order(deadline: :asc)
     elsif params[:sort_status]
       @tasks = Task.all.order(status: :asc)

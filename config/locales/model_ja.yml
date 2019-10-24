@@ -7,7 +7,7 @@ ja:
     attributes:
       task:
         title: タスク名
-        content: 概要
+        content: タスク概要
         status: "ステータス"
       user:
         name: 名前
