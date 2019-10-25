@@ -2,17 +2,19 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :show, :destroy]
 
   def index
+    @task = current_user.tasks
+
     if params[:task].present? && params[:task][:search]
-      @tasks = Task.title_search(params[:task][:title]).status_search(params[:task][:status])
+      @tasks = @task.title_search(params[:task][:title]).status_search(params[:task][:status])
       # @tasks = Task.search(params[:task][:title])
     elsif params[:sort_deadline]
-      @tasks = Task.all.order(deadline: :asc)
+      @tasks = @task.order(deadline: :asc)
     elsif params[:sort_status]
-      @tasks = Task.all.order(status: :asc)
+      @tasks = @task.order(status: :asc)
     elsif params[:sort_priority]
-      @tasks = Task.all.order(priority: :desc)
+      @tasks = @task.order(priority: :desc)
     else
-      @tasks = Task.all.order(created_at: :desc)
+      @tasks = @task.order(created_at: :desc)
     end
     @tasks = @tasks.page(params[:page])
   end
@@ -22,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to tasks_path
       flash[:notice] = "タスクを作成しました"

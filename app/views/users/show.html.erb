@@ -1,2 +1,16 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="card mt-5">
+  <div class="card-body">
+    <div class="my-4 text-center">
+      <span class="h3 ml-5 mr-3 mb-0 text-dark"><%= @user.name %></span>
+    </div>
+    <hr>
+    <div class="my-auto text-center">
+      <p class="h4 my-3">タスク合計 <%= @user.tasks.count%> 件</P>
+      <p class="h5">未着手：<%= @user.tasks.where(status: "not_started").count%> 件</P>
+      <p class="h5">着手中：<%= @user.tasks.where(status: "in_progress").count%> 件</P>
+      <p class="h5">完了：<%= @user.tasks.where(status: "finished").count%> 件</P>
+      <%= link_to " タスク一覧ページ", tasks_path, class: "btn btn-outline-info far fa-file-alt mt-5"%></p>
+      <%#= link_to " プロフィールを編集", edit_user_path, class: "btn btn-outline-info fas fa-user-edit mb-4"%>
+    </div>
+  </div>
+</div>
