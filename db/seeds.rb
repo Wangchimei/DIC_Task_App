@@ -7,3 +7,10 @@
     priority: Faker::Number.within(range: 0..2)
   )
 end
+
+User.create!(
+  name: "example",
+  email: "example@dic.com",
+  password: "password",
+  password_confirmation: "password"
+)
