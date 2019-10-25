@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in
       redirect_to tasks_path
+      flash[:notice] = 'ログインしました'
     else
       render :new
     end
