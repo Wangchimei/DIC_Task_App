@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "user sign up and login", type: :feature do
-  background do
-    @user = FactoryBot.create(:user)
-  end
-
   scenario "user registration"  do
     visit new_user_path
     fill_in "user_name" , with: "Bob"
@@ -27,6 +23,7 @@ RSpec.feature "user sign up and login", type: :feature do
   end
 
   scenario  "fail to login", open_on_error: true do
+    @user = FactoryBot.create(:user)
     visit new_session_path
     fill_in "session_email" ,with: "shiba@dic.com"
     fill_in "session_password", with: "shibacute"

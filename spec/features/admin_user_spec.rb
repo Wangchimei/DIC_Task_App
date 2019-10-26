@@ -11,7 +11,7 @@ RSpec.feature "admin user", type: :feature do
   end
 
   scenario "check admin status"  do
-    expect(page).to have_content "admin"
+    expect(page).to have_content "管理者"
     expect(page).to have_content "ユーザー管理"
   end
 
