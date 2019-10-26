@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :admin_user
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :toggle_admin, :destroy]
 
   def index
     @users = User.all.order(created_at: :desc).page(params[:page])
@@ -29,6 +29,12 @@ class Admin::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def toggle_admin
+    @user.toggle!(:admin)
+    redirect_to admin_users_path
+    flash[:notice] = "権限を変更しました"
   end
 
   def destroy

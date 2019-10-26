@@ -26,9 +26,12 @@
           <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">詳細</button>
         </td>
         <td class="text-center">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1"></label>
+          <div>
+            <% if user.admin %>
+              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-on card-link h3 text-info"%>
+            <% else %>
+              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-off card-link h3 text-info"%>
+            <% end %>
           </div>
         </td>
         <td>

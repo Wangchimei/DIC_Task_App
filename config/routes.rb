@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
   namespace :admin do
-    resources :users, only: [:index, :edit, :update, :destroy]
+    resources :users do
+      member do
+        get :toggle_admin
+      end
+    end
   end
 end

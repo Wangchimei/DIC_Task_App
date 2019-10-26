@@ -2,7 +2,6 @@ class User < ApplicationRecord
   paginates_per 5
 
   before_destroy :last_admin
-  before_update :last_admin
   before_validation { email.downcase! }
   has_many :tasks, dependent: :destroy
   has_secure_password
