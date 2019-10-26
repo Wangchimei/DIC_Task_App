@@ -5,11 +5,11 @@
     </div>
     <hr>
     <div class="my-auto text-center">
-      <p class="h4 my-3">タスク合計 <%= @user.tasks.count%> 件</P>
-      <p class="h5">未着手：<%= @user.tasks.where(status: "not_started").count%> 件</P>
-      <p class="h5">着手中：<%= @user.tasks.where(status: "in_progress").count%> 件</P>
-      <p class="h5">完了：<%= @user.tasks.where(status: "finished").count%> 件</P>
-      <%= link_to " タスク一覧ページ", tasks_path, class: "btn btn-outline-info far fa-file-alt mt-5"%></p>
+      <p class="h4 my-3"><%=t('show.task_total')%> <%= @user.tasks.count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.not_started')%>：<%= @user.tasks.where(status: "not_started").count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.in_progress')%>：<%= @user.tasks.where(status: "in_progress").count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.finished')%>：<%= @user.tasks.where(status: "finished").count%> <%=t('show.unit')%></P>
+      <%= link_to t('show.to_all_tasks'), tasks_path, class: "btn btn-outline-info far fa-file-alt mt-5"%></p>
     </div>
   </div>
 </div>

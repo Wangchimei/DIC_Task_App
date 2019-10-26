@@ -1,0 +1,37 @@
+---
+ja:
+  view:
+    my_page: "マイページ"
+    user_management: "ユーザー管理"
+    new_account: "新規登録"
+    logout: "ログアウト"
+    name: "名前"
+    email: "メールアドレス"
+    password: "パスワード"
+    password_confirmation: "確認用パスワード"
+    sign_up: "登録する"
+    login: "ログイン"
+    admin: "管理者"
+  show:
+    task_total: "タスク合計"
+    unit: "件"
+    not_started: "未着手"
+    in_progress: "着手中"
+    finished: "完了"
+    to_all_tasks: " タスク一覧ページ"
+  admin:
+    user_index: "ユーザー一覧"
+    create_user: " ユーザーを作成"
+    edit_user: "ユーザー編集"
+    user: "ユーザー"
+    task_num: "タスク数"
+    admin_manage: "管理者権限"
+    list: "リスト"
+    create: "作成する"
+    update: "更新する"
+    yes_admin: "あり"
+    no_admin: "なし"
+  message:
+    user_input_error: "入力内容に誤りがあります。"
+    existing_account: "アカウントをお持ちですか？"
+    no_account: "アカウントをお持ちでないですか？"

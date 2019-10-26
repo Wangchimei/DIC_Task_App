@@ -1,15 +1,14 @@
 <div class="card bg-light mx-auto mt-5" style="max-width: 800px;">
   <div class="card-body mx-auto" style="min-width: 600px;">
-    <h4 class="card-title my-4 text-center">ログイン</h4>
+    <h4 class="card-title my-4 text-center"><%=t('view.login')%></h4>
       <%=form_with(scope: :session, url: sessions_path, local: true) do |f|%>
-        <%#= render 'shared/user_error'%>
 
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
         </div>
         <%= f.label :email, class:"sr-only"%>
-        <%= f.email_field :email, class:"form-control", placeholder:"メールアドレス"%>
+        <%= f.email_field :email, class:"form-control", placeholder:t('view.email')%>
         </div>
 
         <div class="form-group input-group">
@@ -17,14 +16,14 @@
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
         <%= f.label :password, class:"sr-only"%>
-        <%= f.password_field :password, class:"form-control", placeholder:"パスワード"%>
+        <%= f.password_field :password, class:"form-control", placeholder:t('view.password')%>
         </div>
 
         <div class="form-group">
-          <%= f.submit "ログイン", class:"btn btn-info btn-block"%>
+          <%= f.submit t('view.login'), class:"btn btn-info btn-block"%>
         </div>
 
-        <p class="text-center">アカウントをお持ちでないですか？ <%= link_to "新規登録", new_user_path %></p>
+        <p class="text-center"><%=t('message.no_account')%><%= link_to t('view.new_account'), new_user_path %></p>
       <%end%>
     </div>
   </div>

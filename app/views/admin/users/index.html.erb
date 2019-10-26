@@ -1,6 +1,6 @@
 <div class="title text-center">
-  <p class="h3 my-4">ユーザー一覧</p>
-  <%=link_to ' ユーザーを作成', new_admin_user_path, class:"btn btn-outline-info fas fa-plus ml-3" %>
+  <p class="h3 my-4"><%=t('admin.user_index')%></p>
+  <%=link_to t('admin.create_user'), new_admin_user_path, class:"btn btn-outline-info fas fa-plus ml-3" %>
 </div>
 
 <div class="mt-5 mb-3">
@@ -10,11 +10,11 @@
 <table class="table my-2">
   <thead class="text-center">
     <tr>
-      <th scope="col">ユーザー</th>
-      <th scope="col">メールアドレス</th>
-      <th scope="col" colspan="2">タスク数</th>
-      <th scope="col">管理者権限</th>
-      <th scope="col">管理</th>
+      <th scope="col"><%=t('admin.user')%></th>
+      <th scope="col"><%=t('view.email')%></th>
+      <th scope="col" colspan="2"><%=t('admin.task_num')%></th>
+      <th scope="col"><%=t('admin.admin_manage')%></th>
+      <th scope="col"><%=t('index.task_management')%></th>
     </tr>
   </thead>
   <% @users.each.with_index(1) do |user, index| %>
@@ -24,7 +24,7 @@
         <td><%=user.email%></td>
         <td class="text-right"><%=user.tasks.count%></td>
         <td>
-          <button class="btn btn-outline-info" id="list_<%=index%>" type="button" data-toggle="collapse" data-target="#list_<%=index%>" aria-expanded="false" aria-controls="list_<%=index%>">リスト</button>
+          <button class="btn btn-outline-info" id="list_<%=index%>" type="button" data-toggle="collapse" data-target="#list_<%=index%>" aria-expanded="false" aria-controls="list_<%=index%>"><%=t('admin.list')%></button>
         </td>
         <td class="text-center">
           <div>
@@ -36,8 +36,8 @@
           </div>
         </td>
         <td>
-          <%=link_to "編集", edit_admin_user_path(user), class:"btn btn-info", id:"edit_#{index}"%>
-          <%=link_to "削除", admin_user_path(user), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger", id:"dlt_#{index}"%>
+          <%=link_to t('view.edit'), edit_admin_user_path(user), class:"btn btn-info", id:"edit_#{index}"%>
+          <%=link_to t('view.delete'), admin_user_path(user), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger", id:"dlt_#{index}"%>
         </td>
       </tr>
       <tr>
