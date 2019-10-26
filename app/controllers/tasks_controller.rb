@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :show, :destroy]
+  before_action :correct_user, only: [:edit]
+  before_action :correct_user_or_admin, only: [:show]
 
   def index
     @task = current_user.tasks
@@ -62,5 +64,19 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :content, :deadline, :status, :priority)
+  end
+
+  def correct_user
+    if current_user.id != @task.user_id
+      redirect_to task_path(@task)
+      flash[:notice] = "ご本人以外の方が操作できません"
+    end
+  end
+
+  def correct_user_or_admin
+    if current_user.id != @task.user_id || current_user.admin
+      redirect_to tasks_path
+      flash[:notice] = "権限ありません"
+    end
   end
 end

@@ -1,5 +1,6 @@
-<div class="title">
-  <p class="h3 my-4 text-center">ユーザー一覧</p>
+<div class="title text-center">
+  <p class="h3 my-4">ユーザー一覧</p>
+  <%=link_to ' ユーザーを作成', new_admin_user_path, class:"btn btn-outline-info fas fa-plus ml-3" %>
 </div>
 
 <div class="mt-5 mb-3">
@@ -23,7 +24,7 @@
         <td><%=user.email%></td>
         <td class="text-right"><%=user.tasks.count%></td>
         <td>
-          <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">詳細</button>
+          <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">リスト</button>
         </td>
         <td class="text-center">
           <div>
@@ -40,7 +41,32 @@
         </td>
       </tr>
       <tr>
-        <td colspan="6" class="collapse" id="demo<%=index%>"> Demo Content1 </td>
+        <td colspan="6" class="collapse" id="demo<%=index%>">
+          <table class="table">
+            <thead class="text-center">
+              <tr>
+                <th scope="col"><%=t('view.task_title')%></th>
+                <th scope="col"><%=t('view.deadline')%></th>
+                <th scope="col"><%=t('view.status')%></th>
+                <th scope="col"><%=t('view.priority')%></th>
+                <th scope="col"><%=t('index.task_management')%></th>
+              </tr>
+            </thead>
+            <% user.tasks.each do |task| %>
+              <tbody>
+                <tr class="text-center">
+                  <td><%=task.title%></td>
+                  <td><%=task.deadline.strftime(("%Y年%m月%d日 %H時%M分"))%></td>
+                  <td><%=Task.statuses_i18n[task.status]%></td>
+                  <td><%=Task.priorities_i18n[task.priority]%></td>
+                  <td>
+                    <%=link_to t('index.detail'), task_path(task), class:"btn btn-info" %>
+                  </td>
+                </tr>
+              </tbody>
+            <% end %>
+          </table>
+        </td>
       </tr>
     </tbody>
   <% end %>
