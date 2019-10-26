@@ -12,8 +12,8 @@
       <th scope="col">ユーザー</th>
       <th scope="col">メールアドレス</th>
       <th scope="col" colspan="2">タスク数</th>
+      <th scope="col">管理者権限</th>
       <th scope="col">管理</th>
-      <th scope="col"><%#=t('view.task_title')%></th>
     </tr>
   </thead>
   <% @users.each.with_index(1) do |user, index| %>
@@ -24,6 +24,12 @@
         <td class="text-right"><%=user.tasks.count%></td>
         <td>
           <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">詳細</button>
+        </td>
+        <td class="text-center">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1"></label>
+          </div>
         </td>
         <td>
           <%=link_to "編集", edit_admin_user_path(user), class:"btn btn-info" %>
