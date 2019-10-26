@@ -74,7 +74,7 @@ class TasksController < ApplicationController
   end
 
   def correct_user_or_admin
-    if current_user.id != @task.user_id || current_user.admin
+    if current_user.id != @task.user_id && !current_user.admin
       redirect_to tasks_path
       flash[:notice] = "権限ありません"
     end

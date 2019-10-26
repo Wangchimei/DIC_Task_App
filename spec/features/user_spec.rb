@@ -69,7 +69,7 @@ RSpec.feature "after user login", type: :feature do
     expect(page).to have_content "Shiba"
   end
 
-  scenario "deny access to other user's page" do
+  scenario "deny access to another user's page" do
     visit user_path(@other_user)
     expect(page).to have_content "権限がありません"
   end
@@ -92,7 +92,7 @@ RSpec.feature "privacy", type: :feature do
     click_on "ログイン"
   end
 
-  scenario "unable to see other user's task" do
+  scenario "unable to see another user's task" do
     expect(page).to have_content "myself"
     expect(page).not_to have_content "other user"
   end

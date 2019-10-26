@@ -24,24 +24,24 @@
         <td><%=user.email%></td>
         <td class="text-right"><%=user.tasks.count%></td>
         <td>
-          <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">リスト</button>
+          <button class="btn btn-outline-info" id="list_<%=index%>" type="button" data-toggle="collapse" data-target="#list_<%=index%>" aria-expanded="false" aria-controls="list_<%=index%>">リスト</button>
         </td>
         <td class="text-center">
           <div>
             <% if user.admin %>
-              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-on card-link h3 text-info"%>
+              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-on card-link h3 text-info", id:"admin_#{index}"%>
             <% else %>
-              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-off card-link h3 text-info"%>
+              <%= link_to "", toggle_admin_admin_user_path(user.id), class:"fas fa-toggle-off card-link h3 text-info", id:"admin_#{index}"%>
             <% end %>
           </div>
         </td>
         <td>
-          <%=link_to "編集", edit_admin_user_path(user), class:"btn btn-info" %>
-          <%=link_to "削除", admin_user_path(user), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger"%>
+          <%=link_to "編集", edit_admin_user_path(user), class:"btn btn-info", id:"edit_#{index}"%>
+          <%=link_to "削除", admin_user_path(user), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger", id:"dlt_#{index}"%>
         </td>
       </tr>
       <tr>
-        <td colspan="6" class="collapse" id="demo<%=index%>">
+        <td colspan="6" class="collapse" id="list_<%=index%>">
           <table class="table">
             <thead class="text-center">
               <tr>
