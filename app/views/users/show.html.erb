@@ -10,7 +10,6 @@
       <p class="h5">着手中：<%= @user.tasks.where(status: "in_progress").count%> 件</P>
       <p class="h5">完了：<%= @user.tasks.where(status: "finished").count%> 件</P>
       <%= link_to " タスク一覧ページ", tasks_path, class: "btn btn-outline-info far fa-file-alt mt-5"%></p>
-      <%#= link_to " プロフィールを編集", edit_user_path, class: "btn btn-outline-info fas fa-user-edit mb-4"%>
     </div>
   </div>
 </div>

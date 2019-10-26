@@ -1,7 +1,10 @@
 class User < ApplicationRecord
+  paginates_per 5
+
   before_destroy :last_admin
-  has_many :tasks, dependent: :destroy
+  before_update :last_admin
   before_validation { email.downcase! }
+  has_many :tasks, dependent: :destroy
   has_secure_password
   validates :name, presence: true, length: { maximum: 30 }
   validates :email, presence: true,
@@ -12,6 +15,6 @@ class User < ApplicationRecord
   private
 
   def last_admin
-    throw(:abort) if User.where(admin: true).count <= 1
+    throw(:abort) if User.where(admin: true).count <= 1 && self.admin?
   end
 end

@@ -1,2 +1,38 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="title">
+  <p class="h3 my-4 text-center">ユーザー一覧</p>
+</div>
+
+<div class="mt-5 mb-3">
+  <%= paginate @users %>
+</div>
+
+<table class="table my-2">
+  <thead class="text-center">
+    <tr>
+      <th scope="col">ユーザー</th>
+      <th scope="col">メールアドレス</th>
+      <th scope="col" colspan="2">タスク数</th>
+      <th scope="col">管理</th>
+      <th scope="col"><%#=t('view.task_title')%></th>
+    </tr>
+  </thead>
+  <% @users.each.with_index(1) do |user, index| %>
+    <tbody class="h6">
+      <tr class="text-center">
+        <td><%=user.name%></td>
+        <td><%=user.email%></td>
+        <td class="text-right"><%=user.tasks.count%></td>
+        <td>
+          <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#demo<%=index%>" aria-expanded="false" aria-controls="demo<%=index%>">詳細</button>
+        </td>
+        <td>
+          <%=link_to "編集", edit_admin_user_path(user), class:"btn btn-info" %>
+          <%=link_to "削除", admin_user_path(user), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger"%>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6" class="collapse" id="demo<%=index%>"> Demo Content1 </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

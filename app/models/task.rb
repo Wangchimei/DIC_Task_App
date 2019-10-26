@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  paginates_per 10
   belongs_to :user
 
   validates :title, :content, :deadline, presence: true
