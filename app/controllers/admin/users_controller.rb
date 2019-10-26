@@ -32,9 +32,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def toggle_admin
-    @user.toggle!(:admin)
-    redirect_to admin_users_path
-    flash[:notice] = "権限を変更しました"
+    if current_user == @user
+      redirect_to tasks_path
+      @user.toggle!(:admin)
+      flash[:notice] = "管理者権限がなくなりました"
+    else
+      @user.toggle!(:admin)
+      redirect_to admin_users_path
+      flash[:notice] = "権限を変更しました"
+    end
   end
 
   def destroy
