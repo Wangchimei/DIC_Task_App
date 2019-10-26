@@ -16,17 +16,10 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def logged_in
+  def already_logged_in
     if logged_in?
       redirect_to tasks_path
       flash[:notice] = "既にログイン中です"
-    end
-  end
-
-  def unauthorized_user
-    if current_user.id != @user.id
-      redirect_to user_path(current_user)
-      flash[:notice] = "権限がありません"
     end
   end
 
