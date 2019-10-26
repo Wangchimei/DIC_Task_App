@@ -23,4 +23,18 @@ FactoryBot.define do
     status { 2 }
     priority { 0 }
   end
+
+  factory :task_by_user, class: Task do
+    title { 'myself' }
+    content { 'myself' }
+    deadline { DateTime.now + 5}
+    user_id { 1 }
+  end
+
+  factory :task_by_other_user, class: Task do
+    title { 'other user' }
+    content { 'other user' }
+    deadline { DateTime.now + 5}
+    user_id { 2 }
+  end
 end
