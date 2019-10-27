@@ -1,0 +1,15 @@
+<div class="card mt-5">
+  <div class="card-body">
+    <div class="my-4 text-center">
+      <span class="h3 ml-5 mr-3 mb-0 text-dark"><%= @user.name %></span>
+    </div>
+    <hr>
+    <div class="my-auto text-center">
+      <p class="h4 my-3"><%=t('show.task_total')%> <%= @user.tasks.count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.not_started')%>：<%= @user.tasks.where(status: "not_started").count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.in_progress')%>：<%= @user.tasks.where(status: "in_progress").count%> <%=t('show.unit')%></P>
+      <p class="h5"><%=t('show.finished')%>：<%= @user.tasks.where(status: "finished").count%> <%=t('show.unit')%></P>
+      <%= link_to t('show.to_all_tasks'), tasks_path, class: "btn btn-outline-info far fa-file-alt mt-5"%></p>
+    </div>
+  </div>
+</div>

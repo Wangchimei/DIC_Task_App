@@ -60,10 +60,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-    config.filter_rails_from_backtrace!
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
 
+  # テストごとに生成されたテストデータを自動で削除する仕組みを導入する
   # 下記の記述を追記
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

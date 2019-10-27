@@ -4,13 +4,15 @@
 </div>
 
 <div class="card">
-  <div class="card-header">
-    <div class="row">
-      <div class="col text-right">
-        <%=link_to t('view.delete'), task_path(@task), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger"%>
+  <% if current_user.id == @task.user_id %>
+    <div class="card-header">
+      <div class="row">
+        <div class="col text-right">
+          <%=link_to t('view.delete'), task_path(@task), method: :delete, data: {confirm: t('view.delete_confirm')}, class:"btn btn-danger"%>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
@@ -59,7 +61,9 @@
   </div>
   <div class="card-footer">
     <div class="text-center">
-      <%=link_to t('view.edit'), edit_task_path(@task), class:"btn btn-info" %>
+      <% if current_user.id == @task.user_id  %>
+        <%=link_to t('view.edit'), edit_task_path(@task), class:"btn btn-info" %>
+      <% end %>
       <%= link_to t('view.back'), :back, class: "btn btn-outline-info" %>
     </div>
   </div>
