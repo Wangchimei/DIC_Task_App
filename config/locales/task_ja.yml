@@ -3,6 +3,7 @@ ja:
   view:
     task_title: "タスク名"
     task_content: "タスク概要"
+    label: "ラベル"
     deadline: "終了期限"
     status: "ステータス"
     priority : "優先順位"

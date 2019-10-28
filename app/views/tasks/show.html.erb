@@ -13,6 +13,13 @@
       </div>
     </div>
   <% end %>
+  <div class="d-flex ml-3">
+    <% @task.labels.each do |label| %>
+      <div class="badge badge-info text-light mt-3 ml-2">
+        <%= label.name %>
+        </div>
+    <% end %>
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
