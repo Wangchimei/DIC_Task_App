@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   paginates_per 10
   belongs_to :user
+  has_many :label_relations, dependent: :destroy
+  has_many :labels, through: :label_relations, source: :label
 
   validates :title, :content, :deadline, presence: true
   enum status: { not_started: 0, in_progress: 1, finished: 2}

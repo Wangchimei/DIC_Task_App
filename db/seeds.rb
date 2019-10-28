@@ -25,3 +25,14 @@ end
     user_id: rand(1..50)
   )
 end
+
+Label.create([
+  {name: "個人"},
+  {name: "家族"},
+  {name: "仕事"},
+  {name: "勉強"},
+  {name: "雑用"},
+  {name: "遊び"},
+  {name: "旅行"},
+  {name: "その他"}
+])
