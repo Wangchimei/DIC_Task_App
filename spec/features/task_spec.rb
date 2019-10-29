@@ -117,12 +117,11 @@ RSpec.feature 'タスク管理機能', type: :feature do
     LabelRelation.create!(task_id: @task2.id, label_id: @label.id)
     LabelRelation.create!(task_id: @task2.id, label_id: @label2.id)
     visit tasks_path
-    save_and_open_page
     select "着手中", from: "task_status"
     # find(:css, "#task_labels_ids_1[value='1']").set(true)
     # find(:css, "#task_labels_ids_2[value='2']").set(true)
-    check "task_labels_ids_1"
-    check "task_labels_ids_2"
+    check "task_labels_ids_#{@label.id}"
+    check "task_labels_ids_#{@label2.id}"
     click_on 'register-button'
     expect(page).to have_content 'titletitle2'
   end
