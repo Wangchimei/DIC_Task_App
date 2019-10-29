@@ -10,7 +10,11 @@ class Task < ApplicationRecord
 
   scope :title_search, ->(title) { where("title LIKE ?", "%#{title}%") }
   scope :status_search, ->(state) { where(status: Task.statuses[state]) }
-  scope :label_search, ->(label_id) {Task.all.joins(:labels).where(labels: { id: label_id, id:label_id})}
+  scope :label_search, ->(label_ids) {
+    next if label_ids.blank?
+    Task.all.joins(:labels).where(labels: { id: label_ids }).group(:id)
+  }
+
 
   # def self.search(search)
   #   if search

@@ -8,8 +8,6 @@ class TasksController < ApplicationController
 
     if params[:task]
       @tasks = @task.title_search(params[:task][:title]).status_search(params[:task][:status]).label_search(params[:task][:labels_ids])
-      # @tasks = Task.joins(:label_relations).where(label_ids: label_ids)params[:task][:labels_ids]
-      # @tasks = Task.searclabel_relationsh(params[:task][:title])
     elsif params[:sort_deadline]
       @tasks = @task.order(deadline: :asc)
     elsif params[:sort_status]

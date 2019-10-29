@@ -4,5 +4,4 @@ class ApplicationRecord < ActiveRecord::Base
   #   enum_name = enum_key
   #   I18n.t("activerecord.attributes.task.#{enum_name}.#{enum_value}")
   # end
-
 end
