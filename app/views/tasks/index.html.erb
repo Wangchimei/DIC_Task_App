@@ -4,11 +4,19 @@
 
 <%= form_with(model: Task.new, url: tasks_path, local: true, method: :get) do |f| %>
   <div class="row align-items-center my-5">
-    <div class="col-6">
+    <div class="col-5 px-1">
       <%= f.text_field :title, class:"form-control"%>
     </div>
-    <div class="col-4">
+    <div class="col-2 px-1">
       <%= f.select :status, Task.statuses_i18n.invert, {}, class: "form-control"%>
+    </div>
+    <div class="col-3">
+      <% Label.all.each do |label|%>
+      <div class="label_search">
+        <%= f.check_box :labels_ids, {multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id] %>
+        <label class="form-check-label"><%= label.name %></label>
+      </div>
+      <% end %>
     </div>
     <%= f.hidden_field :search, value: 'true' %>
     <div class="col-2">
@@ -62,3 +70,6 @@
     </tbody>
   <% end %>
 </table>
+
+la
+Task.all.joins(:labels).where(labels: { id: label_id,})}
