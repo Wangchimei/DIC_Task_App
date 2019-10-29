@@ -56,7 +56,7 @@ RSpec.feature 'タスク管理機能', type: :feature do
 
     click_on '作成する'
 
-    expect(page).to have_content '2019年12月12日 12時30分'
+    expect(page).to have_content '2019/12/12 12:30'
   end
 
   scenario "一覧画面で終了期限でソートテスト" do
@@ -94,5 +94,36 @@ RSpec.feature 'タスク管理機能', type: :feature do
     expect(tasks[0]).to have_content "titletitle2"
     expect(tasks[1]).to have_content "titletitle1"
     expect(tasks[2]).to have_content "titletitle3"
+  end
+
+  scenario "ラベル単数検索" do
+    @label = FactoryBot.create(:label)
+    @label2 = FactoryBot.create(:second_label)
+    LabelRelation.create!(task_id: @task.id, label_id: @label.id)
+    LabelRelation.create!(task_id: @task2.id, label_id: @label.id)
+    LabelRelation.create!(task_id: @task2.id, label_id: @label2.id)
+    visit tasks_path
+    fill_in "task_title", with: "titletitle1"
+    select "未着手", from: "task_status"
+    check "task_labels_ids_1"
+    click_on 'register-button'
+    expect(page).to have_content 'titletitle1'
+  end
+
+  scenario "ラベル複数検索" do
+    @label = FactoryBot.create(:label)
+    @label2 = FactoryBot.create(:second_label)
+    LabelRelation.create!(task_id: @task.id, label_id: @label.id)
+    LabelRelation.create!(task_id: @task2.id, label_id: @label.id)
+    LabelRelation.create!(task_id: @task2.id, label_id: @label2.id)
+    visit tasks_path
+    save_and_open_page
+    select "着手中", from: "task_status"
+    # find(:css, "#task_labels_ids_1[value='1']").set(true)
+    # find(:css, "#task_labels_ids_2[value='2']").set(true)
+    check "task_labels_ids_1"
+    check "task_labels_ids_2"
+    click_on 'register-button'
+    expect(page).to have_content 'titletitle2'
   end
 end
